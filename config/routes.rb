@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # list cocktails
+  get 'cocktails', to: 'cocktails#index'
+  # # view details of cocktail + dose needed for each ingredient
+  # get 'cocktails/:id'
+  # # create new cocktail
+  # get 'cocktails/new'
+  # post 'cocktails'
 end
