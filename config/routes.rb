@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get 'cocktails/index'
   # list cocktails
   get 'cocktails', to: 'cocktails#index'
-  # # view details of cocktail + dose needed for each ingredient
-  # get 'cocktails/:id'
-  # # create new cocktail
-  # get 'cocktails/new'
-  # post 'cocktails'
+  # create new cocktail
+  get 'cocktails/new', to: 'cocktails#new', as: :new_cocktail
+  # view details of cocktail + dose needed for each ingredient
+  get 'cocktails/:id', to: 'cocktails#show', as: :cocktail
+  post 'cocktails', to: 'cocktails#create'
 end
