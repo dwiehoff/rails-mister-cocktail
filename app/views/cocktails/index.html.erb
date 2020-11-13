@@ -1,18 +1,19 @@
-<h1>Cocktails#index</h1>
+<h1>Cocktails</h1>
 
-
-
-<ul class="cocktails">
+<ul class="cocktails mt-4">
   <% @cocktails.each do |c| %>
-  <li class="cocktail">
+  <li class="cocktail card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.diffords.com/contrib/stock-images/2018/05/5af3129344619.jpg)">
     <p class="cocktail-name">
       <%= link_to c.name, cocktail_path(c) %>
-      <ul>
-        <% c.doses.each do |d| %>
+    </p>
+    <ul class="cocktail-ingredients">
+        <% c.doses.first(2).each do |d| %>
           <li> <%= d.ingredient.name.capitalize %> </li>
         <% end %>
+        <% if c.doses.count > 2 %> <!-- any/present? -->
+          <li>...</li>
+        <% end %>
       </ul>
-    </p>
   </li>
   <% end %>
 </ul>
